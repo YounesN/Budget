@@ -1,0 +1,30 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let Transaction"> {{Transaction.date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let Transaction"> {{Transaction.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let Transaction"> {{Transaction.category}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="incoming">
+    <th mat-header-cell *matHeaderCellDef> Incoming </th>
+    <td mat-cell *matCellDef="let Transaction"> {{Transaction.incoming | currency}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="outgoing">
+    <th mat-header-cell *matHeaderCellDef> Outgoing </th>
+    <td mat-cell *matCellDef="let Transaction"> {{Transaction.outgoing | currency}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
